@@ -1,0 +1,14 @@
+#!/usr/bin/env -S make -f
+
+ifeq ($(VIRTUAL_ENV),)
+$(error Required IN python virtual environment!)
+endif
+
+$(info VIRTUAL_ENV=$(VIRTUAL_ENV))
+
+setup:
+	pip install \
+		torch torchvision torchaudio \
+		--extra-index-url https://download.pytorch.org/whl/cpu
+
+.PHONY: setup
